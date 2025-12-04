@@ -1,0 +1,105 @@
+<template>
+  <div class="panel-container">
+    <div class="panel-header">
+      <h2>Race Program</h2>
+    </div>
+
+    <div class="program-content">
+      <div v-if="program.length === 0" class="empty-state">No program generated.</div>
+
+      <div v-else v-for="race in program" :key="race.id" class="race-card">
+        <div class="race-card-header">
+          <span class="distance">{{ race.distance }}m</span>
+        </div>
+
+        <div class="race-list">
+          <div v-for="(horse, index) in race.horses" :key="horse.id" class="race-item">
+            <span class="pos">{{ index + 1 }}</span>
+            <span class="p-name">{{ horse.name }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useStore } from '../store'
+
+const store = useStore()
+const program = computed(() => store.state.program)
+</script>
+
+<style scoped>
+.panel-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.panel-header {
+  background-color: #f8fafc;
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.panel-header h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #334155;
+}
+
+.program-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 15px;
+  background: #f1f5f9;
+}
+.empty-state {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.race-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.race-card-header {
+  background: #3b82f6;
+  color: white;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.race-list {
+  padding: 5px 0;
+}
+.race-item {
+  display: flex;
+  padding: 4px 12px;
+  font-size: 12px;
+  border-bottom: 1px dashed #f1f5f9;
+}
+.race-item:last-child {
+  border-bottom: none;
+}
+.pos {
+  width: 20px;
+  color: #94a3b8;
+  font-size: 10px;
+}
+.p-name {
+  font-weight: 500;
+  color: #475569;
+}
+</style>
