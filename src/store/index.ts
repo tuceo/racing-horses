@@ -27,7 +27,7 @@ export default createStore<State>({
   },
   actions: {
     generateHorses({ commit }: ActionContext<State, State>) {
-      const colors: string[] = [
+      const horseColors = [
         '#e6194b',
         '#3cb44b',
         '#ffe119',
@@ -50,11 +50,34 @@ export default createStore<State>({
         '#808080',
       ]
 
+      const horseNames = [
+        'Secretariat',
+        'Thunderbolt',
+        'Pegasus',
+        'Shadowfax',
+        'Seabiscuit',
+        "Man o' War",
+        'American Pharoah',
+        'Black Caviar',
+        'Red Rum',
+        'Frankel',
+        'Zenyatta',
+        'Eclipse',
+        'Phar Lap',
+        'Citation',
+        'Kelso',
+        'Winx',
+        'Spectacular Bid',
+        'Nijinsky',
+        'Dr Fager',
+        'Affirmed',
+      ]
+
       const newHorses: Horse[] = Array.from({ length: 20 }, (_, i) => ({
         id: i + 1,
-        name: `Horse ${i + 1}`,
+        name: horseNames[i] || '',
         condition: Math.floor(Math.random() * 100) + 1,
-        color: colors[i] ?? '#000000',
+        color: horseColors[i] || '#000000',
       }))
 
       commit('SET_HORSES', newHorses)
