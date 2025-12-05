@@ -50,6 +50,8 @@ export default createStore<State>({
         '#808080',
       ]
 
+      const shuffledColors = [...horseColors].sort(() => 0.5 - Math.random())
+
       const horseNames = [
         'Secretariat',
         'Thunderbolt',
@@ -73,11 +75,13 @@ export default createStore<State>({
         'Affirmed',
       ]
 
+      const shuffledNames = [...horseNames].sort(() => 0.5 - Math.random())
+
       const newHorses: Horse[] = Array.from({ length: 20 }, (_, i) => ({
         id: i + 1,
-        name: horseNames[i] || '',
+        name: shuffledNames[i] || `Horse ${i + 1}`,
         condition: Math.floor(Math.random() * 100) + 1,
-        color: horseColors[i] || '#000000',
+        color: shuffledColors[i] || '#000000',
       }))
 
       commit('SET_HORSES', newHorses)
