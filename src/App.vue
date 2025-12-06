@@ -13,6 +13,7 @@
 
       <aside class="sidebar right-sidebar">
         <ProgramList />
+        <ResultList />
       </aside>
     </div>
   </div>
@@ -25,6 +26,7 @@ import HorseList from './components/HorseList/index.vue'
 import HeaderBar from './components/HeaderBar/index.vue'
 import ProgramList from './components/ProgramList/index.vue'
 import RaceTrack from './components/RaceTrack/index.vue'
+import ResultList from './components/ResultList/index.vue'
 
 const store = useStore()
 

@@ -1,18 +1,18 @@
-.program-list {
+.result-list {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
 }
 .list-title {
-  background-color: #f8fafc;
+  background-color: #f0fdf4;
   padding: 15px;
   border-bottom: 1px solid #e2e8f0;
 }
 .list-title h2 {
   margin: 0;
   font-size: 16px;
-  color: #334155;
+  color: #166534;
 }
 
 .list-content {
@@ -28,7 +28,7 @@
   font-size: 14px;
 }
 
-.race-card {
+.result-card {
   background: white;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -37,8 +37,8 @@
   border: 1px solid #e2e8f0;
 }
 
-.race-card-header {
-  background: #3b82f6;
+.result-header {
+  background-color: #22c55e;
   color: white;
   padding: 8px 12px;
   display: flex;
@@ -48,24 +48,35 @@
   font-weight: 600;
 }
 
-.race-list {
+.result-rows {
   padding: 5px 0;
 }
-.race-item {
+.result-row {
   display: flex;
   padding: 4px 12px;
   font-size: 12px;
   border-bottom: 1px dashed #f1f5f9;
 }
-.race-item:last-child {
+.result-row:last-child {
   border-bottom: none;
 }
+
 .rank {
   width: 20px;
   color: #94a3b8;
   font-size: 10px;
 }
+
 .name {
   font-weight: 500;
   color: #475569;
+}
+
+.result-row:first-child .rank {
+  font-weight: 800;
+  color: #eab308;
+}
+.result-row:first-child .name {
+  font-weight: 800;
+  color: #000;
 }

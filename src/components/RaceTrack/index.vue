@@ -2,7 +2,7 @@
   <div class="track-wrapper">
     <div class="track-info">
       <h2 v-if="currentRace">
-        <span class="round-indicator">ROUND {{ currentRace.round || currentRoundIndex + 1 }}</span>
+        <span class="round-indicator">ROUND {{ currentRace.round }}</span>
         <span class="distance-indicator">{{ currentRace.distance }}m</span>
       </h2>
       <h2 v-else class="waiting">Awaiting Schedule...</h2>
@@ -33,20 +33,22 @@ defineOptions({
 })
 
 import { computed, ref, watch, onUnmounted } from 'vue'
-import { useStore } from '../../store'
 import RunningHorseIcon from '../RunningHorseIcon/index.vue'
+import { useStore } from '../../store'
 
 const store = useStore()
 
 const positions = ref<Record<number, number>>({})
 const animationFrameId = ref<number | null>(null)
+const finishedRanking = ref<number[]>([])
 
 const program = computed(() => store.state.program)
 const currentRoundIndex = computed(() => store.state.currentRoundIndex)
 const isRacing = computed(() => store.state.isRacing)
 
 const currentRace = computed(() => {
-  if (!program.value.length || currentRoundIndex.value >= program.value.length) return null
+  if (!program.value.length) return null
+  if (currentRoundIndex.value >= program.value.length) return null
   return program.value[currentRoundIndex.value]
 })
 
@@ -55,6 +57,7 @@ const currentHorses = computed(() => {
 })
 
 const getPosition = (id: number) => positions.value[id] || 0
+
 watch(
   currentHorses,
   (newHorses) => {
@@ -63,45 +66,56 @@ watch(
       initialPos[h.id] = 0
     })
     positions.value = initialPos
+    finishedRanking.value = []
   },
   { immediate: true },
 )
 
 watch(isRacing, (racing) => {
-  if (racing) {
-    startRaceLoop()
-  } else {
-    stopRaceLoop()
-  }
+  if (racing) startRaceLoop()
+  else stopRaceLoop()
 })
 
 const startRaceLoop = () => {
   const loop = () => {
     if (!isRacing.value) return
 
-    let allFinished = true
-
     currentHorses.value.forEach((horse) => {
       const currentPos = positions.value[horse.id] || 0
       const FINISH_LINE = 90
 
       if (currentPos < FINISH_LINE) {
-        allFinished = false
-        const speed = 0.3 + horse.condition * 0.01 * Math.random()
+        const speed = 0.8 + horse.condition * 0.01 * Math.random()
+        const newPos = currentPos + speed
 
-        positions.value[horse.id] = currentPos + speed
+        positions.value[horse.id] = newPos
+
+        if (newPos >= FINISH_LINE) {
+          if (!finishedRanking.value.includes(horse.id)) {
+            finishedRanking.value.push(horse.id)
+          }
+        }
       }
     })
 
-    if (allFinished) {
-      store.commit('SET_RACING_STATUS', false)
-      console.log('Race finished!')
+    if (finishedRanking.value.length === currentHorses.value.length) {
+      handleRaceFinish()
     } else {
       animationFrameId.value = requestAnimationFrame(loop)
     }
   }
 
   animationFrameId.value = requestAnimationFrame(loop)
+}
+
+const handleRaceFinish = () => {
+  stopRaceLoop()
+
+  const sortedResults = finishedRanking.value.map(
+    (id) => currentHorses.value.find((h) => h.id === id)!,
+  )
+
+  store.dispatch('finishRound', sortedResults)
 }
 
 const stopRaceLoop = () => {

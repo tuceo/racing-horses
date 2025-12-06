@@ -1,20 +1,20 @@
 <template>
-  <div class="program-list">
+  <div class="result-list">
     <div class="list-title">
-      <h2>Race Program</h2>
+      <h2>Race Results</h2>
     </div>
 
     <div class="list-content">
-      <div v-if="program.length === 0" class="empty-state">No program generated.</div>
+      <div v-if="results.length === 0" class="empty-state">Waiting for results...</div>
 
-      <div v-else v-for="race in program" :key="race.round" class="race-card">
-        <div class="race-card-header">
+      <div v-else v-for="race in results" :key="race.round" class="result-card">
+        <div class="result-header">
           <span>{{ race.round }}. Round</span>
           <span>{{ race.distance }}m</span>
         </div>
 
-        <div class="race-list">
-          <div v-for="(horse, index) in race.horses" :key="horse.id" class="race-item">
+        <div class="result-rows">
+          <div v-for="(horse, index) in race.horses" :key="horse.id" class="result-row">
             <span class="rank">{{ index + 1 }}</span>
             <span class="name">{{ horse.name }}</span>
           </div>
@@ -26,14 +26,14 @@
 
 <script setup lang="ts">
 defineOptions({
-  name: 'ProgramList',
+  name: 'ResultList',
 })
 
 import { computed } from 'vue'
 import { useStore } from '../../store'
 
 const store = useStore()
-const program = computed(() => store.state.program)
+const results = computed(() => store.state.results)
 </script>
 
 <style src="./style.css" scoped></style>

@@ -3,7 +3,7 @@
     <h1 class="title">Racing Horses</h1>
 
     <div class="action-buttons">
-      <button class="btn btn-generate" @click="generateSchedule">Generate Program</button>
+      <button class="btn btn-generate" @click="generateProgram">Generate Program</button>
 
       <button class="btn btn-start" :disabled="!hasProgram" @click="toggleRace">
         {{ isRacing ? 'Pause' : 'Start Race' }}
@@ -25,7 +25,7 @@ const store = useStore()
 const hasProgram = computed(() => store.state.program.length > 0)
 const isRacing = computed(() => store.state.isRacing)
 
-const generateSchedule = () => {
+const generateProgram = () => {
   store.dispatch('generateProgram')
 }
 

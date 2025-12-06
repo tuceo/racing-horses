@@ -22,7 +22,6 @@
                   class="cond-fill"
                   :style="{
                     width: horse.condition + '%',
-                    backgroundColor: getConditionColor(horse.condition),
                   }"
                 ></div>
               </div>
@@ -47,12 +46,6 @@ import { useStore } from '../../store'
 
 const store = useStore()
 const horses = computed(() => store.state.horses)
-
-const getConditionColor = (val: number) => {
-  if (val > 80) return '#22c55e'
-  if (val > 50) return '#eab308'
-  return '#ef4444'
-}
 </script>
 
 <style src="./style.css" scoped></style>

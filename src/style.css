@@ -38,5 +38,6 @@ body {
   flex-direction: column;
 }
 .right-sidebar {
-  flex: 0 0 300px;
+  flex: 0 0 400px;
+  display: flex;
 }
