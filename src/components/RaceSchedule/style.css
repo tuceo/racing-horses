@@ -8,12 +8,14 @@
   background-color: #f8fafc;
   padding: 15px;
   border-bottom: 1px solid #e2e8f0;
-  text-align: center;
 }
 .panel-header h2 {
   margin: 0;
   font-size: 16px;
   color: #334155;
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 }
 
 .scroll-content {
@@ -53,6 +55,9 @@
 .tables-row {
   display: flex;
   border-top: 1px solid #e2e8f0;
+  @media (max-width: 1200px) {
+    display: block;
+  }
 }
 
 .table-col {

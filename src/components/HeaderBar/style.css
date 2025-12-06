@@ -5,10 +5,18 @@
   justify-content: space-between;
   align-items: center;
   color: white;
+
+  @media (max-width: 600px) {
+    padding: 5px 10px;
+  }
 }
 
 .title {
   font-size: 18px;
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 }
 
 .action-buttons {
@@ -24,6 +32,10 @@
   border-radius: 8px;
   font-size: 14px;
   text-transform: uppercase;
+
+  @media (max-width: 600px) {
+    font-size: 10px;
+  }
 }
 
 .btn-generate {

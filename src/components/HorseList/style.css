@@ -14,6 +14,10 @@
   font-size: 16px;
   color: #334155;
   font-weight: 700;
+
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
 }
 
 .list-content {
@@ -37,11 +41,17 @@ th {
   position: sticky;
   top: 0;
   z-index: 1;
+  @media (max-width: 600px) {
+    padding: 4px 5px;
+  }
 }
 td {
   padding: 10px 15px;
   border-bottom: 1px solid #f1f5f9;
   color: #334155;
+  @media (max-width: 600px) {
+    padding: 5px;
+  }
 }
 tr:last-child td {
   border-bottom: none;
