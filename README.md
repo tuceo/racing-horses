@@ -1,5 +1,7 @@
 # 🐎 Vue.js Horse Racing Simulator
 
+> **🔴 Live Demo:** [https://racing-horses.vercel.app/](https://racing-horses.vercel.app/)
+
 A real-time Horse Racing Simulator built with **Vue 3**, **TypeScript**, and **Vite**. This application generates random schedules, simulates races with a physics-based algorithm, and tracks results dynamically using a centralized **Vuex** store.
 
 ## 🚀 Features
@@ -10,6 +12,7 @@ A real-time Horse Racing Simulator built with **Vue 3**, **TypeScript**, and **V
 * **Real-time Visualization:** Smooth 60FPS animation of horses moving across the track.
 * **Automatic Progression:** Races run sequentially with a "TV-style" pause and auto-start between rounds.
 * **Unit Testing:** Comprehensive test suite using **Vitest** covering Business Logic (Store) and UI Components.
+* **Responsive Design:** Fully optimized layout for Desktop, Tablet, and Mobile screens.
 
 ## 🛠️ Tech Stack
 
