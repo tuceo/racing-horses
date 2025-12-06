@@ -7,6 +7,7 @@ export interface Horse {
 
 export interface Race {
   id: number
+  round: number
   distance: number
   horses: Horse[]
   results?: Horse[]

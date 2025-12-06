@@ -95,6 +95,7 @@ export default createStore<State>({
 
         return {
           id: index + 1,
+          round: index + 1,
           distance: distance,
           horses: shuffled.slice(0, 10),
         }

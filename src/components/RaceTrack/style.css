@@ -1,0 +1,101 @@
+.track-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  overflow: hidden;
+}
+
+.track-info {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.track-info h2 {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+
+.round-indicator {
+  background: #0f172a;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.distance-indicator {
+  color: #64748b;
+  font-size: 14px;
+}
+.waiting {
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.lanes-container {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #f1f5f9;
+  padding: 10px 0;
+  overflow-y: auto;
+}
+
+.finish-line {
+  position: absolute;
+  right: 10%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: repeating-linear-gradient(45deg, #ef4444, #ef4444 10px, white 10px, white 20px);
+  z-index: 1;
+}
+
+.lane {
+  flex: 1;
+  min-height: 40px;
+  position: relative;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  background: white;
+  margin: 0 10px;
+}
+
+.lane:nth-child(even) {
+  background: #f8fafc;
+}
+
+.lane-id {
+  width: 40px;
+  height: 100%;
+  background: #e2e8f0;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 10px;
+  border-right: 1px solid #cbd5e1;
+  z-index: 2;
+  margin-right: 10px;
+}
+
+.horse-runner {
+  position: absolute;
+  width: 40px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: left 0.1s linear;
+}

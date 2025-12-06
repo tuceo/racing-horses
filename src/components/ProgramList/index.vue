@@ -7,9 +7,9 @@
     <div class="list-content">
       <div v-if="program.length === 0" class="empty-state">No program generated.</div>
 
-      <div v-else v-for="(race, round) in program" :key="race.id" class="race-card">
+      <div v-else v-for="race in program" :key="race.id" class="race-card">
         <div class="race-card-header">
-          <span class="round">{{ round + 1 }}. Round</span>
+          <span class="round">{{ race.round }}. Round</span>
           <span class="distance">{{ race.distance }}m</span>
         </div>
 

@@ -4,7 +4,10 @@
 
     <div class="action-buttons">
       <button class="btn btn-generate" @click="generateSchedule">Generate Program</button>
-      <button class="btn btn-start" disabled>Start Race</button>
+
+      <button class="btn btn-start" :disabled="!hasProgram" @click="toggleRace">
+        {{ isRacing ? 'Pause' : 'Start Race' }}
+      </button>
     </div>
   </div>
 </template>
@@ -14,11 +17,21 @@ defineOptions({
   name: 'HeaderBar',
 })
 
+import { computed } from 'vue'
 import { useStore } from '../../store'
 
 const store = useStore()
 
-const generateSchedule = () => store.dispatch('generateProgram')
+const hasProgram = computed(() => store.state.program.length > 0)
+const isRacing = computed(() => store.state.isRacing)
+
+const generateSchedule = () => {
+  store.dispatch('generateProgram')
+}
+
+const toggleRace = () => {
+  store.commit('SET_RACING_STATUS', !isRacing.value)
+}
 </script>
 
 <style src="./style.css" scoped></style>
