@@ -1,12 +1,12 @@
 import { createStore, Store, useStore as baseUseStore } from 'vuex'
-import type { ActionContext } from 'vuex'
+import type { StoreOptions, ActionContext } from 'vuex'
 import type { InjectionKey } from 'vue'
 import type { State, Horse, Race } from '../utils/types'
 import { Distances, HorseColors, HorseNames } from '@/utils/constants'
 
 export const key: InjectionKey<Store<State>> = Symbol()
 
-export default createStore<State>({
+export const storeOptions: StoreOptions<State> = {
   state: {
     horses: [] as Horse[],
     program: [] as Race[],
@@ -79,7 +79,9 @@ export default createStore<State>({
       commit('NEXT_ROUND')
     },
   },
-})
+}
+
+export default createStore<State>(storeOptions)
 
 export function useStore() {
   return baseUseStore(key)
