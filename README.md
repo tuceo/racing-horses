@@ -1,48 +1,35 @@
-# racing-horses
+# 🐎 Vue.js Horse Racing Simulator
 
-This template should help get you started developing with Vue 3 in Vite.
+A real-time Horse Racing Simulator built with **Vue 3**, **TypeScript**, and **Vite**. This application generates random schedules, simulates races with a physics-based algorithm, and tracks results dynamically using a centralized **Vuex** store.
 
-## Recommended IDE Setup
+## 🚀 Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+* **Randomized Generation:** Creates 20 unique horses with random names, colors, and condition scores (1-100).
+* **Program Generator:** Automatically builds a 6-round schedule with varying distances (1200m to 2200m).
+* **Physics Engine:** Custom `requestAnimationFrame` loop that calculates speed based on a "Condition vs. Luck" algorithm.
+* **Real-time Visualization:** Smooth 60FPS animation of horses moving across the track.
+* **Automatic Progression:** Races run sequentially with a "TV-style" pause and auto-start between rounds.
+* **Unit Testing:** Comprehensive test suite using **Vitest** covering Business Logic (Store) and UI Components.
 
-## Recommended Browser Setup
+## 🛠️ Tech Stack
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+* **Framework:** Vue.js 3 (Composition API + `<script setup>`)
+* **Language:** TypeScript
+* **State Management:** Vuex 4
+* **Build Tool:** Vite
+* **Testing:** Vitest & Vue Test Utils
+* **Styles:** CSS3 (BEM naming convention)
 
-## Type Support for `.vue` Imports in TS
+## 📂 Project Structure
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+```text
+src/
+├── components/          # UI Components
+│   ├── HeaderBar/       # Controls (Generate / Start / Pause)
+│   ├── HorseList/       # Left Sidebar (Horse Stats)
+│   ├── RaceSchedule/    # Right Sidebar (Program & Results)
+│   ├── RaceTrack/       # Main Animation Area
+│   └── RunningHorseIcon # SVG Icon Component
+├── store/               # Vuex Store (State, Actions, Mutations)
+├── utils/               # Constants and Type Definitions
+└── App.vue              # Main Layout
