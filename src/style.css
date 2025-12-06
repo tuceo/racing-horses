@@ -38,7 +38,7 @@ body {
   flex: 0 0 280px;
   @media (max-width: 1000px) {
     flex: 0 0 calc(50% - 12px);
-    max-width: calc(50% - 12px);
+    order: 2;
   }
 
   @media (max-width: 600px) {
@@ -51,8 +51,9 @@ body {
   display: flex;
   flex-direction: column;
   @media (max-width: 1000px) {
-    flex: 1 1 100%;
-    order: 3;
+    flex: 0 0 100%;
+    order: 1;
+    height: 487px;
   }
 }
 .right-sidebar {
@@ -66,7 +67,7 @@ body {
 
   @media (max-width: 1000px) {
     flex: 0 0 calc(50% - 12px);
-    max-width: calc(50% - 12px);
+    order: 2;
   }
 
   @media (max-width: 600px) {
