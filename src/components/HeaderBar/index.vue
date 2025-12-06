@@ -22,7 +22,9 @@ import { useStore } from '../../store'
 
 const store = useStore()
 
-const hasProgram = computed(() => store.state.program.length > 0)
+const hasProgram = computed(
+  () => store.state.program.length > 0 && store.state.program?.[store.state.currentRoundIndex],
+)
 const isRacing = computed(() => store.state.isRacing)
 
 const generateProgram = () => {

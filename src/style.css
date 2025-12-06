@@ -40,4 +40,5 @@ body {
 .right-sidebar {
   flex: 0 0 400px;
   display: flex;
+  flex-direction: column;
 }

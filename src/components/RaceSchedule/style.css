@@ -1,0 +1,113 @@
+.schedule-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.panel-header {
+  background-color: #f8fafc;
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+}
+.panel-header h2 {
+  margin: 0;
+  font-size: 16px;
+  color: #334155;
+}
+
+.scroll-content {
+  overflow-y: auto;
+  flex-grow: 1;
+  padding: 15px;
+  background: #f1f5f9;
+}
+
+.empty-state {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* The Round Card */
+.round-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.card-header {
+  background: #3b82f6; /* Blue Header */
+  color: white;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Flex container for Side-by-Side tables */
+.tables-row {
+  display: flex;
+  border-top: 1px solid #e2e8f0;
+}
+
+.table-col {
+  flex: 1;
+  border-right: 1px solid #f1f5f9;
+}
+.table-col:last-child {
+  border-right: none;
+}
+
+.col-header {
+  background: #f8fafc;
+  padding: 5px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* The actual list rows */
+.horse-row {
+  display: flex;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-bottom: 1px dashed #f1f5f9;
+  align-items: center;
+}
+.horse-row:last-child {
+  border-bottom: none;
+}
+
+.pos {
+  width: 20px;
+  color: #94a3b8;
+  font-weight: bold;
+}
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #334155;
+}
+
+/* Winner Highlight Style */
+.winner-row {
+  background-color: #f0fdf4; /* Light green bg */
+}
+.winner-row .pos {
+  color: #eab308;
+} /* Gold number */
+.winner-row .name {
+  font-weight: 700;
+  color: #166534;
+}
