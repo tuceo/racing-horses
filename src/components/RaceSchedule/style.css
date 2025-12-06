@@ -30,7 +30,6 @@
   font-size: 14px;
 }
 
-/* The Round Card */
 .round-card {
   background: white;
   border-radius: 8px;
@@ -41,7 +40,7 @@
 }
 
 .card-header {
-  background: #3b82f6; /* Blue Header */
+  background: #3b82f6;
   color: white;
   padding: 8px 12px;
   display: flex;
@@ -51,7 +50,6 @@
   font-weight: 700;
 }
 
-/* Flex container for Side-by-Side tables */
 .tables-row {
   display: flex;
   border-top: 1px solid #e2e8f0;
@@ -76,7 +74,6 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-/* The actual list rows */
 .horse-row {
   display: flex;
   padding: 4px 8px;
@@ -100,13 +97,12 @@
   color: #334155;
 }
 
-/* Winner Highlight Style */
 .winner-row {
-  background-color: #f0fdf4; /* Light green bg */
+  background-color: #f0fdf4;
 }
 .winner-row .pos {
   color: #eab308;
-} /* Gold number */
+}
 .winner-row .name {
   font-weight: 700;
   color: #166534;
