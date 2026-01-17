@@ -2,6 +2,8 @@
 
 > **🔴 Live Demo:** [https://racing-horses.vercel.app/](https://racing-horses.vercel.app/)
 
+<img width="1903" height="938" alt="image" src="https://github.com/user-attachments/assets/067711f8-e3c4-4357-9642-4b7d0c670cb1" />
+
 A real-time Horse Racing Simulator built with **Vue 3**, **TypeScript**, and **Vite**. This application generates random schedules, simulates races with a physics-based algorithm, and tracks results dynamically using a centralized **Vuex** store.
 
 ## 🚀 Features
