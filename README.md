@@ -25,6 +25,20 @@ A real-time Horse Racing Simulator built with **Vue 3**, **TypeScript**, and **V
 * **Testing:** Vitest & Vue Test Utils
 * **Styles:** CSS3 (BEM naming convention)
 
+## ⚙️ Installation & Setup
+
+1. **Install Dependencies:**
+   ```bash
+   npm install
+
+2. **Start Development Server**:
+   ```bash
+   npm run dev
+
+3. **Build for Production**:
+   ```bash
+    npm run build
+   
 ## 📂 Project Structure
 
 ```text
